@@ -139,6 +139,20 @@ public abstract class BaseLibraryGenerator<L extends IBaseResource, T extends Ba
         }
         String cql = getCql(cqlContent);
         ArrayList<String> dependencyLibraries = getIncludedLibraries(cql);
+        ArrayList<String> toProcess = new ArrayList<>(dependencyLibraries);
+        while (!toProcess.isEmpty()) {
+            String cqlDependency = toProcess.remove(0);
+            File cqlContentDependency = new File(pathToCqlContentDir + "/" + cqlDependency + ".cql");
+            if (cqlContentDependency.exists()) {
+                String cqlDep = getCql(cqlContentDependency);
+                for (String transitive : getIncludedLibraries(cqlDep)) {
+                    if (!dependencyLibraries.contains(transitive)) {
+                        dependencyLibraries.add(transitive);
+                        toProcess.add(transitive);
+                    }
+                }
+            }
+        }
         File[] allCqlContentFiles = cqlContentDir.listFiles();
         if (allCqlContentFiles == null) {
             return;
