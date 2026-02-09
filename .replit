@@ -26,4 +26,4 @@ outputType = "console"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd /home/runner/workspace && java -jar tooling-cli/target/tooling-cli-3.11.0-SNAPSHOT.jar -UpdateR4Cql \"-pathtocqlcontent=/home/runner/workspace/testfiles/dqm-content-qicore-2025-master/input/cql/CMS125FHIRBreastCancerScreen.cql\" \"-fv=4.0.1\" \"-v=4.0.1\" \"-op=/tmp/cqf-tooling-output\" \"-ini=/home/runner/workspace/testfiles/dqm-content-qicore-2025-master/ig.ini\""
+args = "cd /home/runner/workspace && mvn package -DskipTests -Dcheckstyle.skip=true -Denforcer.skip=true -q && java -jar tooling-cli/target/tooling-cli-3.11.0-SNAPSHOT.jar -UpdateR4Cql \"-pathtocqlcontent=/home/runner/workspace/testfiles/dqm-content-qicore-2025-master/input/cql/CMS125FHIRBreastCancerScreen.cql\" \"-fv=4.0.1\" \"-v=4.0.1\" \"-op=/tmp/cqf-tooling-output\" \"-ini=/home/runner/workspace/testfiles/dqm-content-qicore-2025-master/ig.ini\""
