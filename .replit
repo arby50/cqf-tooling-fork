@@ -4,3 +4,26 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "CQF Tooling CLI"
+
+[[workflows.workflow]]
+name = "CQF Tooling CLI"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd /home/runner/workspace && java -jar tooling-cli/target/tooling-cli-3.11.0-SNAPSHOT.jar"
+
+[workflows.workflow.metadata]
+outputType = "console"
