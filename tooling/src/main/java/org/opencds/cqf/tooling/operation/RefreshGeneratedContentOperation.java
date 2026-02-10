@@ -59,7 +59,7 @@ public abstract class RefreshGeneratedContentOperation extends Operation {
                 case "ptm":
                     pathToMeasures = value;
                     break;
-                case "pathToLibraries":
+                case "pathtolibraries":
                 case "ptl":
                     pathToLibraries = value;
                     break;
