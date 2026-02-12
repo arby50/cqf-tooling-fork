@@ -38,6 +38,7 @@ The CLI supports many operations including:
 - And many more (see Main.java for full documentation)
 
 ## Recent Changes
+- 2026-02-12: Added single-Measure packaging support — the `-mtrp` flag now filters both refresh AND packaging steps, so only the targeted Measure is bundled (modified PackageMeasures.java, IGBundleProcessor.java, IGProcessor.java)
 - 2026-02-09: Initial Replit setup - configured Java/Maven build environment
 
 ## User Preferences
