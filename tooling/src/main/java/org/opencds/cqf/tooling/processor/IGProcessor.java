@@ -111,7 +111,8 @@ public class IGProcessor extends BaseProcessor {
                     params.versioned,
                     params.addBundleTimestamp,
                     fhirContext,
-                    params.fhirUri
+                    params.fhirUri,
+                    params.measureToRefreshPath
             );
         }
         //test everything

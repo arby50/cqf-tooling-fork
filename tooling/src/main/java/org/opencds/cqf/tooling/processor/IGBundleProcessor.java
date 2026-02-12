@@ -32,13 +32,13 @@ public class IGBundleProcessor {
 
     public void bundleIg(List<String> refreshedLibraryNames, String igPath, List<String> binaryPaths, Encoding encoding, Boolean includeELM,
                          Boolean includeDependencies, Boolean includeTerminology, Boolean includePatientScenarios, Boolean versioned, Boolean addBundleTimestamp,
-                         FhirContext fhirContext, String fhirUri) {
+                         FhirContext fhirContext, String fhirUri, String measureToRefreshPath) {
 
 //        new MeasureBundler().bundleResources(refreshedLibraryNames,
 //                igPath, binaryPaths, includeDependencies, includeTerminology,
 //                includePatientScenarios, versioned, addBundleTimestamp, fhirContext,
 //                fhirUri, encoding, verboseMessaging);
-        new PackageMeasures(igPath, fhirContext, includeDependencies, includeTerminology, includePatientScenarios, fhirUri);
+        new PackageMeasures(igPath, fhirContext, includeDependencies, includeTerminology, includePatientScenarios, fhirUri, measureToRefreshPath);
 //        new PlanDefinitionBundler(this.libraryProcessor, this.cdsHooksProcessor).bundleResources(refreshedLibraryNames,
 //                igPath, binaryPaths, includeDependencies, includeTerminology,
 //                includePatientScenarios, versioned, addBundleTimestamp, fhirContext,
